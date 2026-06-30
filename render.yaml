@@ -2,8 +2,8 @@ services:
   - type: web
     name: nutrimind
     runtime: python
-    buildCommand: pip install uv && uv sync
-    startCommand: cd agent && uvicorn app:app --host 0.0.0.0 --port $PORT
+    buildCommand: pip install uv && uv sync --no-dev
+    startCommand: uvicorn agent.app:api --host 0.0.0.0 --port $PORT
     envVars:
       - key: DATABASE_URL
         sync: false
@@ -19,3 +19,5 @@ services:
         sync: false
       - key: LANGCHAIN_PROJECT
         value: NutriMind_Nutritions
+      - key: API_KEY
+        sync: false
