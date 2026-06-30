@@ -1,4 +1,5 @@
 import os
+import uuid
 import requests
 import streamlit as st
 
@@ -10,33 +11,86 @@ st.set_page_config(page_title="NutriMind", page_icon="🥗", layout="centered")
 st.markdown(
     """
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 [data-testid="stAppViewContainer"] { background: #0e1117; color: #e0e0e0; }
 [data-testid="stHeader"] { background: transparent; }
-[data-testid="stSidebar"] { background: #1a1d23; }
+
+h1 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+    color: #e8e8e8 !important;
+}
+
+.description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #8b8fa3;
+    letter-spacing: -0.01em;
+    margin-top: -0.5rem;
+}
+
+[data-testid="stSidebar"] {
+    background: #111318;
+    border-right: 1px solid #1e2028;
+}
 [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] { color: #c0c0c0; }
-h1 { color: #e0e0e0 !important; }
-.stChatInputContainer { background: #1a1d23 !important; border-color: #333 !important; }
+
+.stChatInputContainer {
+    background: #1a1c23 !important;
+    border: 1px solid #282a33 !important;
+    border-radius: 12px !important;
+}
 [data-testid="stChatInputTextArea"] { color: #e0e0e0 !important; }
-[data-testid="stChatMessageContent"] { color: #e0e0e0 !important; }
-[data-testid="stChatMessage"][aria-label="user"] [data-testid="stChatMessageContent"] { background: #1e3a5f !important; }
-[data-testid="stChatMessage"][aria-label="assistant"] [data-testid="stChatMessageContent"] { background: #1a1d23 !important; }
+
+[data-testid="stChatMessageContent"] { color: #d0d4dd !important; font-size: 0.95rem; line-height: 1.6; }
+[data-testid="stChatMessage"][aria-label="user"] [data-testid="stChatMessageContent"] {
+    background: #1a2e3f !important;
+    color: #b8d4e8 !important;
+}
+[data-testid="stChatMessage"][aria-label="assistant"] [data-testid="stChatMessageContent"] {
+    background: #1a1c23 !important;
+}
+
 footer { display: none; }
 #MainMenu { visibility: hidden; }
 .stAppDeployButton { display: none; }
+
+.thread-badge {
+    font-family: 'Inter', monospace;
+    font-size: 0.75rem;
+    color: #6b6f80;
+    background: #1a1c23;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #282a33;
+}
 </style>
 """,
     unsafe_allow_html=True,
 )
 
-st.title("🥗 NutriMind")
-st.markdown(
-    "Multi-agent AI nutrition assistant — stateful memory, longitudinal health analysis, and human-in-the-loop medical flagging."
-)
+
+def new_thread():
+    return uuid.uuid4().hex[:12]
+
 
 if "thread_id" not in st.session_state:
-    st.session_state.thread_id = "USER_#01"
+    st.session_state.thread_id = new_thread()
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+st.title("NutriMind")
+st.markdown(
+    '<p class="description">Multi-agent AI nutrition assistant — stateful memory, longitudinal analysis, and human-in-the-loop medical flagging</p>',
+    unsafe_allow_html=True,
+)
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
@@ -71,9 +125,12 @@ if prompt := st.chat_input("Ask about nutrition, log a meal, or get a meal plan.
         st.session_state.messages.append({"role": "assistant", "content": reply})
 
 with st.sidebar:
-    st.image("nutrimind.png", width=40)
+    st.image("nutrimind.png", width=36)
     st.markdown("### NutriMind")
-    st.markdown("**Thread ID** `USER_#01`")
+    st.markdown(
+        f"Thread: <span class='thread-badge'>{st.session_state.thread_id}</span>",
+        unsafe_allow_html=True,
+    )
     st.markdown(f"**Messages** `{len(st.session_state.messages)}`")
 
     st.divider()
@@ -98,6 +155,7 @@ with st.sidebar:
         "Built by [Ahmed (Harvey)](https://github.com/HarveyAGH) — AI Agent Systems Engineer"
     )
 
-    if st.button("Reset conversation", use_container_width=True):
+    if st.button("New conversation", use_container_width=True):
         st.session_state.messages = []
+        st.session_state.thread_id = new_thread()
         st.rerun()
