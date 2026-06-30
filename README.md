@@ -30,8 +30,7 @@ User Message
      ↓
 ┌─────────────────────────────────────────┐
 │              Supervisor                  │
-│  LLM routing via structured output      │
-│  temperature=0, DecisionRouting schema  │
+│  Routes user intent to correct agent    │
 └────────┬────────────────────────────────┘
          │
     ┌────┴──────┬────────────┬────────────┬──────────────┐
@@ -46,7 +45,7 @@ agent       rag_agent     agent        agent         agent
                            END
 ```
 
-**Supervisor** routes each message to exactly one specialist using `with_structured_output()`. Every specialist returns via `Command(goto="supervisor")` — no conditional edges needed.
+**Supervisor** routes each message to exactly one specialist agent using LangGraph's `Command` pattern. Every specialist returns via `Command(goto="supervisor")` — no conditional edges needed.
 
 ---
 
@@ -70,7 +69,7 @@ agent       rag_agent     agent        agent         agent
 | `get_user_profile` | File I/O → PostgreSQL | memory_agent |
 | `upsert_user_profile` | State Mutation + PostgreSQL | memory_agent |
 | `get_meal_history` | File I/O → PostgreSQL | memory_agent |
-| `search_nutrition_kb` | RAG Retrieval | nutrition_rag_agent |
+| `search_nutrition_kb` | RAG Retrieval (FAISS) | nutrition_rag_agent |
 | `get_nutrition_info` | API Call (USDA) | nutrition_rag_agent |
 | `validate_against_rda` | Computation | nutrition_rag_agent |
 | `detect_goal_drift` | Computation + PostgreSQL | planning_agent |
@@ -89,8 +88,11 @@ agent       rag_agent     agent        agent         agent
 - **LLM** — Claude Haiku via AWS Bedrock (`ChatBedrockConverse`)
 - **Memory** — LangGraph `PostgresSaver` — cross-session conversation state
 - **Database** — PostgreSQL 16 — `user_profiles`, `meal_logs` tables
+- **Vector Store** — FAISS index built from nutrition guidelines, NIH fact sheets, and WHO clinical references
 - **Observability** — LangSmith tracing on every node and tool call
 - **API** — FastAPI with Uvicorn
+- **UI** — Streamlit chat interface
+- **CI** — GitHub Actions (pytest on push/PR)
 - **Package manager** — `uv`
 
 ---
@@ -100,13 +102,23 @@ agent       rag_agent     agent        agent         agent
 ```
 NutriMind/
 ├── agent/
+│   ├── __init__.py       # Package init
 │   ├── agent.py          # Graph definition, supervisor, all agent nodes
 │   ├── tools.py          # 13 tools across 5 patterns
-│   ├── state.py          # NutriState TypedDict + DecisionRouting Pydantic model
-│   └── app.py            # FastAPI wrapper — /health + /chat endpoints
-├── db.py                 # PostgreSQL connection, table setup, all DB functions
+│   ├── app.py            # FastAPI wrapper — /health + /chat endpoints
+│   └── db.py             # PostgreSQL connection, table setup, all DB functions
+├── rag/
+│   ├── vector_store.py   # FAISS vector store (build, search, persist)
+│   ├── embeddings.py     # SentenceTransformer embedding pipeline
+│   └── data_loader.py    # Load PDF/TXT documents for indexing
+├── data/                 # Nutrition knowledge base source documents
+├── faiss_store/          # Persisted FAISS index and metadata
+├── tests/
+│   └── test_tools.py     # 16 unit tests (mocked DB/LLM)
+├── streamlit_app.py      # Chat UI
 ├── docker-compose.yaml   # PostgreSQL local dev container
 ├── pyproject.toml        # Dependencies (uv)
+├── .github/workflows/ci.yaml  # CI pipeline
 └── .env                  # Credentials (git-ignored)
 ```
 
@@ -155,17 +167,18 @@ LANGCHAIN_PROJECT=NutriMind_Nutritions
 docker-compose up -d
 ```
 
-### 4. Create tables
+### 4. Run the API
+
+Tables are created automatically on startup.
 
 ```bash
-uv run python db.py
+uv run uvicorn agent.app:api --host 0.0.0.0 --port 8000
 ```
 
-### 5. Run the API
+### 5. Launch the UI (optional)
 
 ```bash
-cd agent
-uv run uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+uv run streamlit run streamlit_app.py
 ```
 
 ---
@@ -211,7 +224,12 @@ curl -X POST http://localhost:8000/chat \
 
 **Goal Drift Detection** — `detect_goal_drift` compares actual 7-day average macros against the user's stated goal. If protein is averaging 40g against a 120g target, `planning_agent` builds the plan around closing that gap.
 
-**Deterministic Supervisor Routing** — supervisor uses `with_structured_output(DecisionRouting)` with a `Literal` type constraint. The LLM physically cannot return an invalid agent name.
+**RAG-Enhanced Nutrition Knowledge** — FAISS vector store built from:
+
+- Dietary Guidelines for Americans (food groups, caloric targets, macro distribution)
+- WHO/FAO chronic disease prevention clinical reference (TRS 916)
+- NIH Office of Dietary Supplements health professional fact sheets (macros, micronutrients, RDAs)
+- NIH FAQ database (supplements, interactions, regulations)
 
 ---
 
@@ -231,48 +249,5 @@ All traces visible in LangSmith under project `NutriMind_Nutritions`. Every supe
 - [ ] Multi-user support with auth
 
 ---
-
-
-## RAG Documents Integration:
-
-The Folder Content of the Documents Included are:
-
-
-1. **Dietary_Guidelines_Context**: The single most important document. Covers food      groups, caloric targets, macro distribution, nutrient-dense vs calorie-dense foods, and eating patterns across all life stages.
-
-2. **Chronic_Diseases_Prevention_Context (Clinical)**: WHO/FAO Diet, Nutrition and Prevention of Chronic Diseases (TRS 916)
-
-The definitive international reference for diet-disease relationships - covers cardiovascular disease, obesity, diabetes, cancer, and osteoporosis.
-
-3. **NIH ODS Health Professional Fact Sheets (Macronutrients)** (download 10–15 key ones)
-
-Multiple page evidence-based TXT's covering: what the nutrient does, deficiency symptoms, food sources, RDA by age/sex, and toxicity thresholds.
-documents per dietery supplement content examples:
-
-* Calcium for Health Proffessionals.
-* Folate for Health Proffessionals.
-* Iron for Health Proffessionals.
-* Zinc for Health Proffessionals.
-* Vitamin B12 for Health Proffessionals.
-* Magnesium for Health Proffessionals.
-
-and more.
-
-4. **National Institutes of Health (FAQ)**: Frequently asked Questions Provided by the National Institues of health with these table of contents:
-
-* Use of Dietary Supplements
-* Vitamins and Minerals
-* Herbs and Botanicals
-* Fish Oil and Omega-3s
-* Dietary Supplements for Exercise and Athletic Performance
-* Interactions between Dietary Supplements and Medications
-* Dietary Supplements for Specific Health Conditions
-* Dietary Supplement Labels
-* Purchasing Dietary Supplements
-* Dietary Supplement Regulations
-* Dietary Supplement Sales and Market Data
-* ODS Website Materials and Link Requests
-* Media Inquiries
-
 
 Built by [Ahmed (Harvey)](https://github.com/HarveyAGH) — AI Agent Systems Engineer

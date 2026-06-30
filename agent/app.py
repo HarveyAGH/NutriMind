@@ -1,8 +1,5 @@
 import os
-import sys
 import logging
-
-sys.path.insert(0, os.path.dirname(__file__))
 
 from fastapi import FastAPI, HTTPException, Header, Depends
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,10 +7,9 @@ from pydantic import BaseModel
 from langchain_core.messages import HumanMessage
 import uvicorn
 
-import agent as agent_module
-import db
+from agent.agent import compiled as nutrimind
+import agent.db as db
 
-nutrimind = agent_module.compiled
 API_KEY = os.getenv("API_KEY", "")
 
 logging.basicConfig(level=logging.INFO)
@@ -79,4 +75,4 @@ async def chat(request: ChatRequest, auth=Depends(verify_api_key)):
 
 
 if __name__ == "__main__":
-    uvicorn.run("app:api", host="0.0.0.0", port=8000)
+    uvicorn.run("agent.app:api", host="0.0.0.0", port=8000)

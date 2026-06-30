@@ -19,12 +19,14 @@ logger = logging.getLogger(__name__)
 def _get_data_pool():
     global _data_pool
     if _data_pool is None:
-        _data_pool = ConnectionPool(DB_URL, max_size=10, kwargs={"autocommit": True})
+        _data_pool = ConnectionPool(
+            DB_URL, max_size=10, kwargs={"autocommit": True, "connect_timeout": 5}
+        )
     return _data_pool
 
 
 def get_connection():
-    return _get_data_pool().connection()
+    return _get_data_pool().connection(timeout=5)
 
 
 def get_checkpointer() -> PostgresSaver:
@@ -34,7 +36,7 @@ def get_checkpointer() -> PostgresSaver:
         _checkpoint_pool = ConnectionPool(
             DB_URL,
             max_size=20,
-            kwargs={"autocommit": True},
+            kwargs={"autocommit": True, "connect_timeout": 5},
         )
 
     if _checkpointer is None:

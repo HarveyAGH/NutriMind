@@ -53,6 +53,7 @@ MEMORY_AGENT_PROMPT = """You are the Memory Agent for NutriMind.
 You manage user profiles and retrieve meal history.
 
 Rules:
+- Ensure proper Greeting when first time interacting with the user
 - For new users: collect age, weight (kg), height (cm), goal, and dietary restrictions
 - Confirm details with the user before calling upsert_user_profile
 - When showing meal history, summarise patterns clearly (avg calories, common foods)
@@ -114,7 +115,7 @@ tool unless the request genuinely needs more than one specialist.
 - call_intake_agent    -> user wants to log a meal, see today's macros, or check running totals
 - call_insight_agent   -> user asks about health trends, streaks, or long-term patterns
 
-Always repeat the specialist's full answer back to the user as your final response."""
+Always Synthesize the specialist's full answer back to the user as your final response."""
 
 
 memory_agent = create_agent(
@@ -203,4 +204,10 @@ builder = StateGraph(NutriState)
 builder.add_node("supervisor", supervisor)
 builder.add_edge(START, "supervisor")
 builder.add_edge("supervisor", END)
-compiled = builder.compile(checkpointer=get_checkpointer())
+try:
+    _checkpointer = get_checkpointer()
+except Exception as e:
+    _checkpointer = None
+    print(f"NOTE: No PostgreSQL connection ({e}). Running without persistent memory.")
+
+compiled = builder.compile(checkpointer=_checkpointer)
