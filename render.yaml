@@ -14,10 +14,21 @@ services:
       - key: AWS_BEARER_TOKEN_BEDROCK
         sync: false
       - key: LANGCHAIN_TRACING_V2
-        value: true
+        value: "true"
       - key: LANGCHAIN_API_KEY
         sync: false
       - key: LANGCHAIN_PROJECT
         value: NutriMind_Nutritions
       - key: API_KEY
         sync: false
+      # --- AGGRESSIVE MEMORY LIMITS ---
+      - key: MALLOC_ARENA_MAX
+        value: "2"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: PYTORCH_DISABLE_NVIDIA_TRITON
+        value: "1"
