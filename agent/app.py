@@ -1,10 +1,8 @@
 import os
-import json
 import logging
 
 from fastapi import FastAPI, HTTPException, Header, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from langchain_core.messages import HumanMessage
 import uvicorn
@@ -74,30 +72,6 @@ async def chat(request: ChatRequest, auth=Depends(verify_api_key)):
     except Exception as e:
         logger.error("Chat error: %s", e, exc_info=True)
         raise HTTPException(status_code=500, detail="Internal server error")
-
-
-@api.post("/chat/stream")
-async def chat_stream(request: ChatRequest, auth=Depends(verify_api_key)):
-    config = {"configurable": {"thread_id": request.thread_id}}
-
-    async def generate():
-        try:
-            async for chunk in nutrimind.astream(
-                {"messages": [HumanMessage(content=request.message)]},
-                config=config,
-                stream_mode="messages",
-                version="v2",
-            ):
-                if chunk["type"] == "messages":
-                    msg, metadata = chunk["data"]
-                    if msg.content and isinstance(msg.content, str):
-                        yield f"data: {json.dumps({'token': msg.content})}\n\n"
-            yield "data: [DONE]\n\n"
-        except Exception as e:
-            logger.error("Stream error: %s", e, exc_info=True)
-            yield f"data: {json.dumps({'error': str(e)})}\n\n"
-
-    return StreamingResponse(generate(), media_type="text/event-stream")
 
 
 if __name__ == "__main__":
