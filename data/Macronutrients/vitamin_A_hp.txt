@@ -1,0 +1,206 @@
+Introduction
+Vitamin A is the name of a group of fat-soluble retinoids, primarily retinol and retinyl esters [1,2]. Vitamin A is involved in immune function, cellular communication, growth and development, and male and female reproduction [1-3]. Vitamin A supports cell growth and differentiation, playing a critical role in the normal formation and maintenance of the heart, lungs, eyes, and other organs [1,2]. Vitamin A is also critical for vision as an essential component of rhodopsin, the light-sensitive protein in the retina that responds to light entering the eye, and because it supports the normal differentiation and functioning of the conjunctival membranes and cornea [2,4].
+
+The human diet contains two sources for vitamin A: preformed vitamin A (retinol and retinyl esters) and provitamin A carotenoids [1,5]. Preformed vitamin A is found in foods from animal sources, including dairy products, eggs, fish, and organ meats [1,2]. Provitamin A carotenoids are plant pigments that include beta-carotene, alpha-carotene, and beta-cryptoxanthin [1]. The body converts provitamin A carotenoids into vitamin A in the intestine via the beta-carotene monooxygenase type 1 BCMO1 enzyme [1,3,6], although conversion rates may have genetic variability [7,8,9]. Other carotenoids in food, such as lycopene, lutein, and zeaxanthin, are not converted into vitamin A and are referred to as non-provitamin A carotenoids; they might have other important activities not involving vitamin A formation [1].
+
+The various forms of vitamin A are solubilized into micelles in the intestinal lumen and absorbed by duodenal mucosal cells [5]. Retinyl esters and provitamin A carotenoids are converted to retinol after uptake into the lumen (for retinyl esters) or absorption (for provitamin A carotenoids). Retinol is then oxidized to retinal and retinoic acid, the two main active vitamin A metabolites in the body [1]. Most of the body’s vitamin A is stored in the liver in the form of retinyl esters [1].
+
+Retinol and carotenoid levels are typically measured in plasma or serum because blood samples are easy to collect [1]. However, these levels are not always reliable indicators of vitamin A status because they do not decline until vitamin A levels in the liver and other storage sites are almost depleted and because acute and chronic infections can decrease serum and plasma retinol concentrations [1]. Most vitamin A is stored in the liver, so measuring vitamin A levels in the liver is the best way to assess vitamin A adequacy [1]. In clinical studies, specialized research laboratories can measure liver vitamin A reserves indirectly using isotope-dilution or dose-response methods, in which plasma levels of retinol, a tracer surrogate, or both are measured over several days after the administration of vitamin A [1].
+
+In clinical practice, plasma retinol levels alone can be used to document significant deficiency. A serum or plasma retinol concentration of 20 mcg/dL (0.70 micromoles/L) or less frequently reflects moderate vitamin A deficiency, and a level of 10 mcg/dL (0.35 micromoles/L) or less is considered an indicator of severe vitamin A deficiency [1].
+
+Recommended Intakes
+Intake recommendations for vitamin A and other nutrients are provided in the Dietary Reference Intakes (DRIs) developed by the Food and Nutrition Board (FNB) at the National Academies of Sciences, Engineering, and Medicine [5]. DRI is the general term for a set of reference values used for planning and assessing nutrient intakes of healthy people. These values, which vary by age and sex, include the following:
+
+Recommended Dietary Allowance (RDA): Average daily level of intake sufficient to meet the nutrient requirements of nearly all (97%–98%) healthy individuals; often used to plan nutritionally adequate diets for individuals
+Adequate Intake (AI): Intake at this level is assumed to ensure nutritional adequacy; established when evidence is insufficient to develop an RDA
+Estimated Average Requirement (EAR): Average daily level of intake estimated to meet the requirements of 50% of healthy individuals; usually used to assess the nutrient intakes of groups of people and to plan nutritionally adequate diets for them; can also be used to assess the nutrient intakes of individuals
+Tolerable Upper Intake Level (UL): Maximum daily intake unlikely to cause adverse health effects
+RDAs for vitamin A are given as retinol activity equivalents (RAE) to account for the different bioactivities of retinol and provitamin A carotenoids, all of which are converted by the body into retinol (see Table 1). One mcg RAE is equivalent to 1 mcg retinol, 2 mcg supplemental beta-carotene, 12 mcg dietary beta-carotene, or 24 mcg dietary alpha-carotene or beta-cryptoxanthin [5].
+
+Table 1: Recommended Dietary Allowances (RDAs) for Vitamin A [5]
+Age	Male	Female	Pregnancy	Lactation
+Birth to 6 months*	400 mcg RAE	400 mcg RAE		
+7–12 months*	500 mcg RAE	500 mcg RAE		
+1–3 years	300 mcg RAE	300 mcg RAE		
+4–8 years	400 mcg RAE	400 mcg RAE		
+9–13 years	600 mcg RAE	600 mcg RAE		
+14–18 years	900 mcg RAE	700 mcg RAE	750 mcg RAE	1,200 mcg RAE
+19–50 years	900 mcg RAE	700 mcg RAE	770 mcg RAE	1,300 mcg RAE
+51+ years	900 mcg RAE	700 mcg RAE		
+Download this table as a CSV file
+*AI, equivalent to the mean intake of vitamin A in healthy, breastfed infants.
+
+The units of measurement for vitamin A are now mcg RAE, but International Units (IUs) were previously used [10]. To convert IU to mcg RAE, use the following [11-13]:
+
+1 IU retinol = 0.3 mcg RAE
+1 IU supplemental beta-carotene = 0.3 mcg RAE
+1 IU dietary beta-carotene = 0.05 mcg RAE
+1 IU dietary alpha-carotene or beta-cryptoxanthin = 0.025 mcg RAE
+RAE can only be directly converted into IUs if the sources of vitamin A are known. For example, the RDA of 900 mcg RAE for adolescent and adult men is equivalent to 3,000 IU if the food or supplement source is preformed vitamin A (retinol) or if the supplement source is beta-carotene. This RDA is also equivalent to 18,000 IU beta-carotene from food or to 36,000 IU alpha-carotene or beta-cryptoxanthin from food. Therefore, a mixed diet containing 900 mcg RAE provides between 3,000 and 36,000 IU vitamin A, depending on the foods consumed.
+
+Sources of Vitamin A
+Food
+Concentrations of preformed vitamin A are highest in liver, fish, eggs, and dairy products [1]. Most dietary provitamin A in the U.S. diet comes from leafy green vegetables, orange and yellow vegetables, tomato products, fruits, and some vegetable oils [1,5,14]. Vitamin A is routinely added to some foods, including milk and margarine [1,2]. Some ready-to-eat cereals are also fortified with vitamin A.
+
+About 65% to 80% of vitamin A consumed in the United States and other high-income countries comes from preformed vitamin A, whereas provitamin A is the main form consumed in low-income countries, where diets include more plant-based foods [2,15]. Among U.S. children and adolescents, enriched and fortified foods account for 34%–40% of vitamin A intakes from food [16].
+
+The body might absorb up to 75% to 100% of retinol and, in most cases, 10% to 30% of beta-carotene from foods [17,18]. Cooking and heat treatment can increase the bioavailability of beta-carotene from foods [19].
+
+Table 2 lists a variety of foods and their vitamin A content per serving. The foods from animal sources in Table 2 contain primarily preformed vitamin A, the plant-based foods have provitamin A, and the foods with a mixture of ingredients from animals and plants contain both preformed vitamin A and provitamin A.
+
+Table 2: Vitamin A Content of Selected Foods [20]
+Food	microgram (mcg) RAE
+per serving	Percent
+DV*
+Beef liver, pan fried, 3 ounces	6,582	731
+Sweet potato, baked in skin, 1 whole	1,403	156
+Spinach, frozen, boiled, ½ cup	573	64
+Pumpkin pie, commercially prepared, 1 piece	488	54
+Carrots, raw, ½ cup	459	51
+Herring, Atlantic, pickled, 3 ounces	219	24
+Ice cream, French vanilla, soft serve, ⅔ cup	185	21
+Milk, skim, with added vitamin A and vitamin D, 1 cup	149	17
+Cantaloupe, raw, ½ cup	135	15
+Cheese, ricotta, part skim, ½ cup	133	15
+Peppers, sweet, red, raw, ½ cup	117	13
+Mangos, raw, 1 whole	112	12
+Breakfast cereals, fortified with 10% of the DV for vitamin A, 1 serving	90	10
+Egg, hard boiled, 1 large	75	8
+Black-eyed peas (cowpeas), boiled, 1 cup	66	7
+Apricots, dried, sulfured, 5 apricots	63	7
+Broccoli, boiled, ½ cup	60	7
+Salmon, sockeye, cooked, 3 ounces	59	7
+Tomato juice, canned, ¾ cup	42	5
+Yogurt, plain, low fat, 1 cup	32	4
+Tuna, light, canned in oil, drained, 3 ounces	20	2
+Baked beans, canned, plain or vegetarian, 1 cup	13	1
+Summer squash, all varieties, boiled, ½ cup	10	1
+Chicken, breast meat and skin, roasted, ½ breast	5	1
+Pistachio nuts, dry roasted, 1 ounce	4	0
+Download this table as a CSV file
+*DV = Daily Value. Food and Drug Administration (FDA) developed DVs to help consumers compare the nutrient contents of foods and dietary supplements within the context of a total diet. The DV for vitamin A is 900 mcg RAE for adults and children age 4 years and older [11], where 1 mcg RAE = 1 mcg retinol, 2 mcg beta-carotene from supplements, 12 mcg beta-carotene from foods, 24 mcg alpha-carotene, or 24 mcg beta-cryptoxanthin. FDA does not require food labels to list vitamin A content unless vitamin A has been added to the food. Foods providing 20% or more of the DV are considered to be high sources of a nutrient, but foods providing lower percentages of the DV also contribute to a healthful diet.
+
+The U.S. Department of Agriculture’s (USDA’s) FoodData Centralexternal link disclaimer lists the nutrient content of many foods and provides a comprehensive list of foods containing vitamin A arranged by nutrient content and by food name.
+
+Dietary supplements
+Vitamin A is available in stand-alone supplements and most multivitamins, often in the form of retinyl acetate, retinyl palmitate, provitamin A beta-carotene, or a combination [1,21]. Amounts of vitamin A in supplements vary widely, but 3,000 mcg RAE (333% of the DV) is common [21]. Multivitamins commonly have somewhat lower amounts, often 750 to 1,050 mcg RAE (83% to 117% of the DV).
+
+The absorption of preformed vitamin A esters from dietary supplements is 70%–90%, and that of beta-carotene ranges from 8.7% to 65% [19,22].
+
+Vitamin A Intakes and Status
+Average daily intakes of vitamin A from foods and beverages in the United States were 682 mcg RAE for men age 20 and older and 616 mcg RAE for women in 2017–2018, according to the National Health and Nutrition Examination Survey (NHANES) [23]. For children age 2–19, mean daily intakes of vitamin A from foods and beverages ranged from 497 to 680 mcg RAE. An analysis of biochemical data from 2003–2006 NHANES data indicates that less than 1% of the U.S. population has a serum retinol level of less than 20 mcg/dL, which indicates that vitamin A deficiency is uncommon in the U.S. population [24].
+
+Data from NHANES III, conducted from 1988 to 1994, showed that approximately 26% of the vitamin A in RAEs consumed by men and 34% of that consumed by women in the United States comes from provitamin A carotenoids [5]. The remainder comes from preformed vitamin A, mostly in the form of retinyl esters.
+
+About 12% to 40% of the U.S. population, depending on age, uses supplements containing vitamin A [25]. Adults age 71 years or older and children younger than 9 are more likely than members of other age groups to take supplements containing vitamin A.
+
+Vitamin A Deficiency
+Frank vitamin A deficiency is rare in the United States. However, vitamin A deficiency is still common in many developing countries, often as a result of limited access to foods containing preformed vitamin A from animal-based food sources and to foods containing provitamin A carotenoids because of poverty or traditional diets [1,26]. A pooled analysis of population-based surveys from 138 low-income and middle-income countries found that 29% of children age 6 months to 5 years had vitamin A deficiency in 2013 [27]. Deficiency rates were highest in sub-Saharan Africa (48%) and South Asia (44%). In addition, approximately 10% to 20% of pregnant women in low-income countries have vitamin A deficiency [28].
+
+Limited research suggests that vitamin A deficiency may also be influenced by genetic variability in conversion rates of beta-carotene to vitamin A. Certain polymorphisms in the BCMO1 gene have been found to reduce the activity of the BCMO1 enzyme in humans [8,9], and a study in the Philippines among 693 children and adolescents found an inverse association between vitamin A status and the A379V TT variant in the BCMO1 gene [7].
+
+The most common clinical sign of vitamin A deficiency is xerophthalmia, which develops after plasma retinol has been low and the eye’s vitamin A reserves have become depleted. The first sign is night blindness, or the inability to see in low light or darkness as a result of low rhodopsin levels in the retina [1,27,28]. Xerophthalmia also affects the cornea and can eventually lead to permanent blindness; vitamin A deficiency is one of the top causes of preventable blindness in children [28].
+
+Chronic vitamin A deficiency has also been associated with abnormal lung development, respiratory diseases (such as pneumonia), and an increased risk of anemia and death [26,27,29].
+
+Another effect of chronic vitamin A deficiency is increased severity and mortality risk of infections (particularly measles and infection-associated diarrhea) [26]. In 2013, 94,500 children in low-income and middle-income countries died of diarrhea and 11,200 died of measles as a result of vitamin A deficiency [27]. More than 95% of deaths attributable to vitamin A deficiency occurred in sub-Saharan Africa and Asia, where vitamin A deficiency was responsible for 2% of all deaths in children younger than 5 years [27].
+
+Groups at Risk of Vitamin A Inadequacy
+The following groups are among those most likely to have inadequate intakes of vitamin A.
+
+Premature infants
+Preterm infants have low liver stores of vitamin A at birth, and their plasma concentrations of retinol often remain low throughout the first year of life [30,31]. Preterm infants with vitamin A deficiency have a higher risk of eye and chronic lung diseases [32,33]. However, in high-income countries, clinical vitamin A deficiency is rare in infants and occurs only in those with malabsorption disorders [34].
+
+Infants, children, and pregnant and lactating women in low-income and middle-income countries
+Pregnant women need extra vitamin A for fetal growth and tissue maintenance and to support their own metabolism [35-37]. The breast milk of lactating women with adequate vitamin A intakes contains sufficient amounts of vitamin A to meet infants’ needs for the first 6 months of life [38]. However, in people with vitamin A deficiency, the vitamin A content of breast milk is not sufficient to maintain adequate vitamin A stores in infants who are exclusively breastfed [38].
+
+About 190 million preschool-age children (one-third of all children in this age group), mostly in Africa and Southeast Asia, have vitamin A deficiency, according to the World Health Organization [27,39]. They have a higher risk of visual impairment and of illness and death from childhood infections, such as measles and infections that cause diarrheal diseases [1,39].
+
+The World Health Organization estimates that 9.8 million pregnant women (15% of all pregnant women) around the world, mostly in low-income and middle-income countries, have xerophthalmia as a result of vitamin A deficiency [40].
+
+People with cystic fibrosis
+Up to 90% of people with cystic fibrosis have pancreatic insufficiency, which increases their risk of vitamin A deficiency due to difficulty absorbing fat [1,41]. Studies in Australia and the Netherlands indicate that 2% to 13% of children and adolescents with cystic fibrosis have vitamin A deficiency [42,43]. As a result, standard care for cystic fibrosis includes lifelong treatment with vitamin A (daily amounts of 750 mcg RAE to 3,000 mcg RAE, depending on age, are recommended in the United States and Australia), other fat-soluble vitamins, and pancreatic enzymes [41,43].
+
+Individuals with gastrointestinal disorders
+Approximately one-quarter of children with Crohn’s disease and ulcerative colitis have vitamin A deficiency; adults with these disorders, especially those who have had the disorder for several years, also have a higher risk of vitamin A deficiency [44,45]. Although some evidence supports the use of vitamin A supplements in people with these disorders [46], other research has found that supplementation offers no benefit [47]. Some children and adults with newly diagnosed celiac disease also have vitamin A deficiency; a gluten-free diet can, but does not always, eliminate this deficiency [48-51].
+
+Vitamin A and Health
+This section focuses on three diseases and disorders in which vitamin A or carotenoids might play a role: cancer, age-related macular degeneration (AMD), and measles.
+
+Cancer
+Because of its role in regulating cell growth and differentiation, several studies have examined the association between vitamin A and various types of cancer. However, the relationship between serum vitamin A levels or vitamin A supplementation and cancer risk or cancer-related death is unclear. This fact sheet does not include studies of all-trans retinoic acid, a vitamin A metabolite that is used as a drug in high doses to treat a form of leukemia [52,53].
+
+Several systematic reviews and meta-analyses of observational studies have shown that higher dietary intakes of retinol, carotenoids, fruits and vegetables, or a combination are associated with a lower risk of lung cancer [54], non-Hodgkin lymphoma [55], pancreatic cancer [56], oral cavity cancer [57], laryngeal cancer [57], esophageal cancer [58], ovarian cancer [59,60], glioma [61], and bladder cancer [62]. However, other observational studies have found no association between intakes of different forms of vitamin A and risk of liver cancer [63], non-Hodgkin lymphoma [64], colorectal cancer [65], prostate cancer [65], or all cancers [66].
+
+Some clinical trial evidence suggests that supplemental vitamin A might reduce the risk of certain cancers but increase the risk of other forms of cancer, cardiovascular disease morbidity and mortality, and all-cause mortality. Examples are provided below.
+
+The Carotene and Retinol Efficacy Trial (CARET) included 18,314 male and female current and former smokers (with at least a 20 pack-year history [equivalent to smoking 1 pack per day for 20 years or 2 packs per day for 10 years, for example] of cigarette smoking) as well as some men occupationally exposed to asbestos (who also have a higher risk of lung cancer), all age 45–74 years. The study randomized participants to take supplements containing 30 mg beta-carotene plus 25,000 IU (7,500 mcg RAE) retinyl palmitate or a placebo daily for about 6 years to evaluate the potential effects on lung cancer risk [67]. The trial was ended prematurely after a mean of 4 years, partly because the supplements were unexpectedly found to have increased lung cancer risk by 28% and death from lung cancer by 46%; the supplements also increased the risk of all-cause mortality by 17%.
+
+A subsequent study followed CARET participants for an additional 6 years after they stopped taking the study supplements [68]. During this time, the differences in lung cancer risk between the intervention and placebo groups were no longer statistically significant, with one exception: women in the intervention group had a 33% higher risk of lung cancer. In a separate analysis of CARET study data, men who took the two supplements had a 35% lower risk of nonaggressive prostate cancer during the 4-year active trial but not during the 6-year postintervention period. In contrast, men who took these two supplements in addition to another self-prescribed supplement (typically a multivitamin) had a 52% higher risk of aggressive prostate cancer during the active trial, but not during the postintervention period [69].
+
+The Alpha-Tocopherol, Beta-Carotene (ATBC) Cancer Prevention Study also found that beta-carotene supplements increased the risk of lung cancer in smokers [70]. In this study, 29,133 male smokers age 50–69 years who smoked an average of 20.4 cigarettes a day for an average of 35.9 years took a supplement containing 50 mg/day alpha-tocopherol, 20 mg/day beta-carotene, both alpha-tocopherol and beta-carotene, or a placebo for 5–8 years. The beta-carotene supplements increased the risk of lung cancer by 18%, although they had little to no effect on the incidence of other cancers. The overall rate of death, primarily from lung cancer and ischemic heart disease, was 8% higher in participants who took beta-carotene. A subsequent study followed 25,563 of these participants for an additional 18 years [71]. During this period, participants were no longer taking the supplements, but most continued to smoke. Participants who had taken beta-carotene in the original trial did not have a higher risk of lung cancer, but they had a 20% higher risk of death due to prostate cancer.
+
+The Age-Related Eye Disease Study 2 (AREDS2) was a 5-year randomized clinical trial with 4,203 participants age 50–85 years examining the effects on AMD of a dietary supplement containing several ingredients with or without beta-carotene (15 mg [7,500 mcg RAE]) [72]. No current smokers received the supplements containing beta-carotene. At the end of the trial, more lung cancers were discovered in the beta-carotene group than in the no beta-carotene group (23 vs. 11 cases), and 31 of the 34 affected were former smokers. In a follow-up analysis of 3,882 of the participants 5 years after the end of AREDS2 (during which they took the AREDS2 formulation containing lutein and zeaxanthin instead of beta-carotene), the increased lung cancer risk persisted, with an 82% higher risk among participants who took the supplement containing beta-carotene during the 5-year AREDS2 trial [73].
+
+Three other clinical trials have found no relationship between taking vitamin A or beta-carotene supplements and lung cancer incidence or mortality [74]. One trial randomized 22,071 male physicians age 40–84 years to take 50 mg beta carotene on alternate days or a placebo for 12 years [75]. Eleven percent of the physicians were current smokers, and 38% were former smokers at the start of the study. The results showed no differences between the groups in number of cases of lung cancer or any malignant neoplasms or number of deaths from cancer. Another trial randomized 7,627 women (mean age 60.4 years) to take 50 mg beta-carotene on alternate days, 600 IU vitamin E on alternate days, 500 mg vitamin C daily, or a placebo for a mean of 9.4 years [76]. Fifteen percent of the women were current smokers, and 41% were former smokers at the start of the study. None of the supplements had any significant effect on total cancer incidence or cancer mortality, including from lung cancer. A third trial included 29,584 healthy men and women age 40–69 years who were living in Linxian, China, where micronutrient deficiencies are common [77]. The study randomized participants to take either a placebo or one of four vitamin and mineral combinations (including one providing retinol and zinc and another providing beta carotene, vitamin E, and selenium) for 5.25 years. The investigators followed participants for an additional 10 years after they stopped taking the supplements. The nutrient doses in the supplements were equivalent to or twice as high as U.S. recommended intakes, but the study report did not provide the exact doses. During both the intervention and follow-up periods, lung cancer death rates did not differ among the five groups, even when the investigators further analyzed the results for differences by age, sex, and smoking status.
+
+The CARET and ATBC study results suggest that large supplemental doses of beta-carotene with or without retinyl palmitate have detrimental effects in current or former smokers and workers exposed to asbestos. However, the other studies described above that used similar vitamin A doses but had smaller proportions of current or former smokers do not raise this concern. Among nonsmokers, beta-carotene and vitamin A supplements do not appear to affect the risk of cancer.
+
+Age-related macular degeneration
+AMD is the leading cause of significant vision loss in older people [78]. AMD’s etiology involves complex interactions among genetic susceptibility, environmental factors (including exposure to oxidative stress), and normal aging [78]. Because of the role of oxidative stress in AMD pathophysiology, supplements containing carotenoids with antioxidant functions, such as beta-carotene, lutein, and zeaxanthin, might be useful for preventing or treating this condition. Lutein and zeaxanthin (which are not precursors of vitamin A), in particular, accumulate in the retina, the tissue in the eye that is damaged by AMD.
+
+The AREDS trial found that participants with a high risk of developing advanced AMD (i.e., those who had intermediate AMD or who had advanced AMD in one eye) had a 25% lower risk of developing advanced AMD after they took a daily supplement containing beta-carotene (15 mg [7,500 mcg RAE]), vitamin E (180 mg [400 IU] dl-alpha-tocopheryl acetate), vitamin C (500 mg), zinc (80 mg), and copper (2 mg) for 5 years than participants taking a placebo [79].
+
+The follow-up AREDS2 study confirmed the value of this supplement in reducing the progression of AMD over a median follow-up period of 5 years [72]. However, this follow-up study showed that adding lutein (10 mg) and zeaxanthin (2 mg) or omega-3 fatty acids to the formulation produced no additional benefits. Importantly, the follow-up study also revealed that beta-carotene was not a required ingredient; the original AREDS formulation without beta-carotene provided the same protective effect against developing advanced AMD.
+
+In a more detailed analysis, participants with the lowest dietary intakes of lutein and zeaxanthin had a 26% lower risk of advanced AMD when they took a supplement containing these two carotenoids than those who did not take a supplement with these carotenoids [72]. The risk of advanced AMD was also 18% lower in participants who took the modified AREDS supplement containing lutein and zeaxanthin but not beta-carotene than in participants who took the formulation with beta-carotene but not lutein or zeaxanthin.
+
+A subsequent study monitored dietary intakes of several nutrients in 4,504 AREDS participants and 3,738 AREDS2 participants (mean age 71 years) for a median of 10.2 years [80]. Participants in the two highest quintiles of intakes for vitamin A, beta-carotene, or lutein and zeaxanthin had a lower risk of progression to late AMD. For example, the risk of late AMD was 18% lower among those in the fifth quintile for vitamin A intake and 20% lower among those in the fourth quintile than among those in the first quintile.
+
+At the end of the 5-year AREDS2 trial, participants were all offered the final AREDS2 formulation that included lutein and zeaxanthin in place of beta-carotene. Researchers followed up with 3,882 of these participants for an additional 5 years [73]. After 10 years, participants who had taken the AREDS2 supplement with lutein and zeaxanthin had an additional 20% reduced risk of progression to late AMD compared with those who took the supplement containing beta-carotene. This finding confirmed the benefit of replacing beta-carotene with lutein and zeaxanthin.
+
+Individuals who have or are developing AMD should talk to their health care provider about their vitamin A intakes and the supplement formulations used in the AREDS studies.
+
+Measles
+In 2023, measles was responsible for about 107,500 deaths worldwide, mostly in young children in low-income countries [81,82]. Vitamin A deficiency, which is rare in the United States, is a risk factor for severe measles [27,83]. A World Health Organization analysis of data from 83 countries showed that 11,200 child deaths from measles were associated with vitamin A deficiency in 2013, and more than 95% of these deaths occurred in sub-Saharan Africa and south Asia [27].
+
+Research suggests that vitamin A supplementation reduces the risk of measles in children who are at high risk of vitamin A deficiency. However, vitamin A supplementation does not appear to reduce the risk of death from measles. A 2022 Cochrane Review included six clinical trials that examined the effect of vitamin A supplementation on the risk of measles in children [84]. These studies enrolled a total of 19,566 children age 6 months to 5 years who lived in low- and middle-income countries. Vitamin A doses ranged from 15,000 mcg RAE (50,000 IU) to 60,000 mcg RAE (200,000 IU), depending on age. Supplements were administered as a single dose or every 4 to 6 months. Vitamin A supplementation reduced the risk of new cases of measles by 50%. However, the same Cochrane Review found that vitamin A supplementation did not affect the risk of death due to measles, based on the results from six clinical trials in a total of 1,088,261 children.
+
+Health Risks from Excessive Vitamin A
+Because vitamin A is fat soluble, the body stores excess amounts, primarily in the liver, and these levels can accumulate.
+
+Acute vitamin A toxicity, also referred to as hypervitaminosis A, occurs within days to weeks after someone ingests one or a few very high doses (typically more than 100 times the RDA) [85]. Resulting signs and symptoms typically include severe headache, blurred vision, nausea, dizziness, aching muscles, and coordination problems. In severe cases, cerebral spinal fluid pressure can increase, leading to drowsiness and, eventually, coma and even death [85].
+
+Chronic hypervitaminosis A (regular consumption of high doses) can cause dry skin, painful muscles and joints, fatigue, depression, and abnormal liver test results [85].
+
+Total intakes of preformed vitamin A that exceed the UL as well as some retinoid medications used as topical therapies (such as isotretinoin, used to treat severe acne, and etretinate, a treatment for severe psoriasis) can cause congenital birth defects [1]. These birth defects can include malformations of the eye, skull, lungs, and heart [14]. Experts advise women who are or might be pregnant and those who are lactating not to take high doses (more than 3,000 mcg RAE [10,000 IU] daily) of vitamin A supplements [1].
+
+Unlike preformed vitamin A, beta-carotene is not known to be teratogenic or lead to reproductive toxicity [1]. The most common effect of long-term, excess beta-carotene is carotenodermia, a harmless condition in which the skin becomes yellow-orange [3]. This condition can be reversed by discontinuing beta-carotene ingestion. However, the ATBC trial found that supplementation with a large amount of beta-carotene (20 mg/day), with or without 50 mg/day vitamin E, for 5–8 years increased the risk of lung cancer and mortality (mainly from lung cancer and ischemic heart disease) in male smokers [70]. The CARET trial also showed that supplementation with a large amount of beta-carotene (30 mg/day) plus 7,500 mcg RAE (25,000 IU)/day retinyl palmitate for 4–8 years in current and former smokers as well as some men occupationally exposed to asbestos increased the risk of lung cancer and death from lung cancer [67].
+
+The FNB has not established ULs for beta-carotene and other provitamin A carotenoids [3]. However, the FNB advises against the use of beta-carotene supplements for the general population, except as a provitamin A source to prevent vitamin A deficiency.
+
+Tolerable upper intake levels for preformed vitamin A
+The FNB has established ULs for preformed vitamin A that apply to both food and supplement intakes [5]. The FNB based these ULs on the amounts associated with an increased risk of liver abnormalities in men and women, teratogenic effects, and several toxic effects in infants and children.
+
+Table 3: Tolerable Upper Intake Levels (ULs) for Preformed Vitamin A [5]*
+Age	Male	Female	Pregnancy	Lactation
+Birth to 12 months	600 mcg	600 mcg		
+1–3 years	600 mcg	600 mcg		
+4–8 years	900 mcg	900 mcg		
+9–13 years	1,700 mcg	1,700 mcg		
+14–18 years	2,800 mcg	2,800 mcg	2,800 mcg	2,800 mcg
+19+ years	3,000 mcg	3,000 mcg	3,000 mcg	3,000 mcg
+Download this table as a CSV file
+*These ULs apply only to products from animal sources and supplements whose vitamin A comes entirely from retinol or its ester forms, such as retinyl palmitate. However, many dietary supplements (such as multivitamins) do not provide all of their vitamin A in retinol or its ester forms. For example, the vitamin A in some supplements consists partly or entirely of beta-carotene. In such cases, the percentage of retinol or retinyl ester in the supplement should be used to determine whether an individual’s vitamin A intake exceeds the UL. For example, a supplement whose label indicates that the product contains 3,000 mcg RAE vitamin A and that 60% of this vitamin A comes from beta-carotene (and therefore 40% comes from retinol or retinyl ester) provides 1,200 mcg RAE of preformed vitamin A. That amount is above the UL for children from birth to 8 years but below the UL for older children and adults.
+
+Interactions with Medications
+Vitamin A has the potential to interact with certain medications. In addition, several types of medications might adversely affect vitamin A levels. A few examples are provided below. Individuals taking these and other medications on a regular basis should discuss their vitamin A status with their health care providers.
+
+Orlistat (Alli, Xenical), a weight-loss treatment, can decrease the absorption of vitamin A, other fat-soluble vitamins, and beta-carotene, resulting in low plasma levels in some patients [86,87]. The manufacturers of Alli and Xenical recommend that patients on orlistat take a multivitamin supplement containing vitamin A and beta-carotene as well as other fat-soluble vitamins [88,89].
+
+Retinoids
+Several synthetic retinoids derived from vitamin A are used orally as prescription medicines. Examples include the psoriasis treatment acitretin (Soriatane) and bexarotene (Targretin), used to treat the skin effects of T-cell lymphoma. Retinoids can increase the risk of hypervitaminosis A when taken in combination with vitamin A supplements [87].
+
+Vitamin A and Healthful Diets
+In general, a person’s nutritional needs should be met primarily through the diet, including fortified foods. Dietary supplements may be useful in cases where it is not possible to meet the needs for specific nutrients through food alone, especially during certain life stages. The Dietary Guidelines for Americans offers a general description of healthy dietary patterns. 

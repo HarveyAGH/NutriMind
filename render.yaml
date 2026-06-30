@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: nutrimind
+    runtime: python
+    buildCommand: pip install uv && uv sync
+    startCommand: cd agent && uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: BEDROCK_MODEL_ID
+        sync: false
+      - key: BEDROCK_REGION
+        sync: false
+      - key: AWS_BEARER_TOKEN_BEDROCK
+        sync: false
+      - key: LANGCHAIN_TRACING_V2
+        value: true
+      - key: LANGCHAIN_API_KEY
+        sync: false
+      - key: LANGCHAIN_PROJECT
+        value: NutriMind_Nutritions
