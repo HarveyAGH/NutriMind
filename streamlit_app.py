@@ -1,4 +1,5 @@
 import os
+import json
 import uuid
 import requests
 import streamlit as st
@@ -20,20 +21,28 @@ html, body, [class*="css"] {
 [data-testid="stAppViewContainer"] { background: #0e1117; color: #e0e0e0; }
 [data-testid="stHeader"] { background: transparent; }
 
+/* Remove default spacing */
+[data-testid="stAppViewContainer"] > .stApp > div { padding-top: 0.5rem; }
+.element-container { margin-bottom: 0 !important; }
+div[data-testid="stVerticalBlock"] > div { gap: 0 !important; }
+.stMarkdown { margin: 0 !important; }
+
 h1 {
     font-family: 'Inter', sans-serif !important;
     font-weight: 600 !important;
     letter-spacing: -0.02em !important;
     color: #e8e8e8 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .description {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
-    font-size: 0.9rem;
-    color: #8b8fa3;
+    font-size: 0.85rem;
+    color: #6b6f80;
     letter-spacing: -0.01em;
-    margin-top: -0.5rem;
+    margin: -0.3rem 0 0.5rem 0 !important;
 }
 
 [data-testid="stSidebar"] {
@@ -57,6 +66,8 @@ h1 {
 [data-testid="stChatMessage"][aria-label="assistant"] [data-testid="stChatMessageContent"] {
     background: #1a1c23 !important;
 }
+
+[data-testid="stChatMessage"] { padding: 0.1rem 0 !important; }
 
 footer { display: none; }
 #MainMenu { visibility: hidden; }
@@ -102,27 +113,45 @@ if prompt := st.chat_input("Ask about nutrition, log a meal, or get a meal plan.
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            try:
-                headers = {"X-API-Key": API_KEY} if API_KEY else {}
-                resp = requests.post(
-                    f"{API_URL}/chat",
-                    json={
-                        "message": prompt,
-                        "thread_id": st.session_state.thread_id,
-                    },
-                    headers=headers,
-                    timeout=90,
-                )
-                resp.raise_for_status()
-                reply = resp.json()["response"]
-            except requests.exceptions.ConnectionError:
-                reply = "Backend not reachable. Run `uv run uvicorn agent.app:api --host 0.0.0.0 --port 8000`."
-            except Exception as e:
-                reply = f"Error: {e}"
+        placeholder = st.empty()
+        response_text = ""
+        try:
+            headers = {"X-API-Key": API_KEY} if API_KEY else {}
+            with requests.post(
+                f"{API_URL}/chat/stream",
+                json={
+                    "message": prompt,
+                    "thread_id": st.session_state.thread_id,
+                },
+                headers=headers,
+                stream=True,
+                timeout=90,
+            ) as resp:
+                for line in resp.iter_lines():
+                    if line:
+                        line = line.decode("utf-8")
+                        if line.startswith("data: "):
+                            data = line[6:]
+                            if data == "[DONE]":
+                                break
+                            payload = json.loads(data)
+                            if "token" in payload:
+                                response_text += payload["token"]
+                                placeholder.markdown(response_text + "▌")
+                            elif "error" in payload:
+                                response_text = f"Error: {payload['error']}"
+                                break
+            placeholder.markdown(response_text)
+        except requests.exceptions.ConnectionError:
+            response_text = "Backend not reachable. Run `uv run uvicorn agent.app:api --host 0.0.0.0 --port 8000`."
+            placeholder.markdown(response_text)
+        except Exception as e:
+            response_text = f"Error: {e}"
+            placeholder.markdown(response_text)
 
-        st.markdown(reply)
-        st.session_state.messages.append({"role": "assistant", "content": reply})
+        st.session_state.messages.append(
+            {"role": "assistant", "content": response_text}
+        )
 
 with st.sidebar:
     st.image("nutrimind.png", width=36)
