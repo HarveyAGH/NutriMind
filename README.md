@@ -183,23 +183,6 @@ uv run streamlit run streamlit_app.py
 
 ---
 
-## Deploy to Render
-
-1. Push your repo to GitHub
-2. Create a **PostgreSQL** database on Render (free tier works) and copy its internal connection string
-3. Create a **Web Service** on Render, connect your GitHub repo, Render auto-detects `render.yaml`
-4. Set all required environment variables in the Render dashboard:
-   - `DATABASE_URL` — your Render PostgreSQL internal URL
-   - `AWS_BEARER_TOKEN_BEDROCK` — your Bedrock auth token
-   - `BEDROCK_MODEL_ID`, `BEDROCK_REGION`
-   - `LANGCHAIN_API_KEY` (optional, for tracing)
-   - `API_KEY` (optional, to protect the API)
-5. Deploy — Render runs `uv sync --no-dev` on build, then starts `uvicorn agent.app:api`
-
-**Note**: The first deploy takes 2–3 minutes because `sentence-transformers` downloads the embedding model on cold start.
-
----
-
 ## API Endpoints
 
 ### Health check
