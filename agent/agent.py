@@ -3,20 +3,18 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from typing import TypedDict, Sequence, Annotated
 from dotenv import load_dotenv
 
 load_dotenv()
 
-from langgraph.types import interrupt
+from langgraph.types import Command, interrupt
 from langchain_aws import ChatBedrockConverse
-from langchain_core.messages import SystemMessage, HumanMessage, BaseMessage
-from langgraph.graph.message import add_messages
+from langchain_core.messages import SystemMessage, AIMessage
 from langgraph.graph import StateGraph, START, END
 from langchain.agents import create_agent
-from langchain_core.tools import tool
 
 from db import get_checkpointer
+from state import NutriState, DecisionRouting
 from tools import (
     get_user_profile,
     upsert_user_profile,
@@ -32,10 +30,6 @@ from tools import (
     analyze_nutrition_patterns,
     track_streaks,
 )
-
-
-class NutriState(TypedDict):
-    messages: Annotated[Sequence[BaseMessage], add_messages]
 
 
 def get_llm(temperature: float = 0.3) -> ChatBedrockConverse:
@@ -106,16 +100,14 @@ Rules:
 - user_id is always 'USER_#01'"""
 
 SUPERVISOR_PROMPT = """You are the supervisor of NutriMind, an AI nutrition assistant.
-Route the user's message to the correct specialist tool. Call exactly one
-tool unless the request genuinely needs more than one specialist.
+Route the user's message to the correct specialist. Route once. Never do the work yourself.
 
-- call_memory_agent    -> user wants to set up/update their profile, or view profile/meal history
-- call_nutrition_agent -> user asks a nutrition question, wants food data, or macro/calorie info
-- call_planning_agent  -> user wants a meal plan or to review goal progress
-- call_intake_agent    -> user wants to log a meal, see today's macros, or check running totals
-- call_insight_agent   -> user asks about health trends, streaks, or long-term patterns
-
-Always Synthesize the specialist's full answer back to the user as your final response."""
+- memory_agent          -> user wants to set up/update their profile, or view profile/meal history
+- nutrition_rag_agent   -> user asks a nutrition question, wants food data, or macro/calorie info
+- planning_agent        -> user wants a meal plan or to review goal progress
+- intake_agent          -> user wants to log a meal, see today's macros, or check running totals
+- insight_agent         -> user asks about health trends, streaks, or long-term patterns
+- FINISH                -> question is fully answered, no more agents needed"""
 
 
 memory_agent = create_agent(
@@ -148,62 +140,81 @@ insight_agent = create_agent(
     system_prompt=INSIGHT_AGENT_PROMPT,
 )
 
-
-@tool
-def call_memory_agent(query: str) -> str:
-    """Set up or update the user's profile, or retrieve meal history."""
-    result = memory_agent.invoke({"messages": [HumanMessage(content=query)]})
-    return result["messages"][-1].content
-
-
-@tool
-def call_nutrition_agent(query: str) -> str:
-    """Answer nutrition questions, food data, or macro/calorie lookups."""
-    result = nutrition_rag_agent.invoke({"messages": [HumanMessage(content=query)]})
-    return result["messages"][-1].content
-
-
-@tool
-def call_planning_agent(query: str) -> str:
-    """Generate a meal plan or review goal progress."""
-    result = planning_agent.invoke({"messages": [HumanMessage(content=query)]})
-    return result["messages"][-1].content
-
-
-@tool
-def call_intake_agent(query: str) -> str:
-    """Log a meal or check today's running macro totals."""
-    result = intake_agent.invoke({"messages": [HumanMessage(content=query)]})
-    return result["messages"][-1].content
-
-
-@tool
-def call_insight_agent(query: str) -> str:
-    """Analyze long-term nutrition patterns, streaks, or health trends."""
-    result = insight_agent.invoke({"messages": [HumanMessage(content=query)]})
-    last = result["messages"][-1].content
-    if "medical_flag" in str(last).lower() or "1200" in str(last):
-        interrupt("Medical concern flagged. Awaiting human review.")
-    return last
-
-
-supervisor = create_agent(
-    model=get_llm(temperature=0),
-    tools=[
-        call_memory_agent,
-        call_nutrition_agent,
-        call_planning_agent,
-        call_intake_agent,
-        call_insight_agent,
-    ],
-    system_prompt=SUPERVISOR_PROMPT,
+structured_output_supervisor = get_llm(temperature=0).with_structured_output(
+    DecisionRouting
 )
 
 
+def supervisor_node(state: NutriState) -> Command:
+    decision = structured_output_supervisor.invoke(
+        [SystemMessage(content=SUPERVISOR_PROMPT)] + list(state["messages"])
+    )
+    goto = decision.next
+    if goto == "FINISH":
+        return Command(goto=END)
+    return Command(update={"next": goto}, goto=goto)
+
+
+def memory_node(state: NutriState) -> Command:
+    result = memory_agent.invoke({"messages": state["messages"]})
+    last_message = result["messages"][-1].content
+    return Command(
+        update={"messages": [AIMessage(content=last_message, name="memory_agent")]},
+        goto="supervisor",
+    )
+
+
+def nutrition_node(state: NutriState) -> Command:
+    result = nutrition_rag_agent.invoke({"messages": state["messages"]})
+    last_message = result["messages"][-1].content
+    return Command(
+        update={
+            "messages": [AIMessage(content=last_message, name="nutrition_rag_agent")]
+        },
+        goto="supervisor",
+    )
+
+
+def planning_node(state: NutriState) -> Command:
+    result = planning_agent.invoke({"messages": state["messages"]})
+    last_message = result["messages"][-1].content
+    return Command(
+        update={"messages": [AIMessage(content=last_message, name="planning_agent")]},
+        goto="supervisor",
+    )
+
+
+def intake_node(state: NutriState) -> Command:
+    result = intake_agent.invoke({"messages": state["messages"]})
+    last_message = result["messages"][-1].content
+    return Command(
+        update={"messages": [AIMessage(content=last_message, name="intake_agent")]},
+        goto="supervisor",
+    )
+
+
+def insight_node(state: NutriState) -> Command:
+    result = insight_agent.invoke({"messages": state["messages"]})
+    last_message = result["messages"][-1].content
+    if "medical_flag" in str(last_message).lower() or "1200" in str(last_message):
+        interrupt("Medical concern flagged. Awaiting human review.")
+    return Command(
+        update={"messages": [AIMessage(content=last_message, name="insight_agent")]},
+        goto="supervisor",
+    )
+
+
 builder = StateGraph(NutriState)
-builder.add_node("supervisor", supervisor)
+
+builder.add_node("supervisor", supervisor_node)
+builder.add_node("memory_agent", memory_node)
+builder.add_node("nutrition_rag_agent", nutrition_node)
+builder.add_node("planning_agent", planning_node)
+builder.add_node("intake_agent", intake_node)
+builder.add_node("insight_agent", insight_node)
+
 builder.add_edge(START, "supervisor")
-builder.add_edge("supervisor", END)
+
 try:
     _checkpointer = get_checkpointer()
 except Exception as e:
